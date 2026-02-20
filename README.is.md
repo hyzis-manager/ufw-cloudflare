@@ -6,9 +6,11 @@ Stjórnar sjálfkrafa [IP-sviðum Cloudflare](https://www.cloudflare.com/ips/) �
 
 Hannað fyrir **Ubuntu þjóna** (einnig samhæft við Debian-byggð kerfi).
 
+> **DDoS vörn:** Með því að leyfa aðeins IP-svið Cloudflare og loka allri annarri beinni umferð á gáttum 80/443 verður upprunaþjónninn þinn ósýnilegur árásarmönnum. Allar HTTP/HTTPS beiðnir verða að fara fyrst í gegnum net Cloudflare, sem nýtir innbyggða DDoS-vörn, WAF og vélmennavörn áður en þær ná til þjónsins þíns. Beinar DDoS-árásir á upprunaþjóninn eru í raun útilokaðar þar sem IP-vistföng utan Cloudflare er hafnað á eldveggsstigi.
+
 ## Af hverju?
 
-Þegar lénið þitt er sett í gegnum Cloudflare kemur öll umferð gestanna frá [IP-vistföngum Cloudflare](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) í stað einstakra IP-vistfanga gestanna. Eldveggurinn þinn verður að leyfa þessi svið, annars verður lögmæt umferð stöðvuð. Þetta skrifta sjálfvirknivæðir þetta ferli og heldur reglunum uppfærðum.
+Þegar lénið þitt er sett í gegnum Cloudflare kemur öll umferð gestanna frá [IP-vistföngum Cloudflare](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) í stað einstakra IP-vistfanga gestanna. Eldveggurinn þinn verður að leyfa þessi svið, annars verður lögmæt umferð stöðvuð. Án þessarar stillingar gæti IP-vistfang upprunaþjónsins þíns verið útsett og viðkvæmt fyrir beinum DDoS-árásum sem fara framhjá Cloudflare. Þetta skrifta sjálfvirknivæðir þetta ferli og heldur reglunum uppfærðum.
 
 ## Kröfur
 

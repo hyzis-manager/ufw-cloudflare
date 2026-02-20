@@ -6,9 +6,11 @@
 
 专为 **Ubuntu 服务器**设计（也兼容基于 Debian 的系统）。
 
+> **DDoS 防护：** 通过仅允许 Cloudflare IP 范围并阻止所有直接访问 80/443 端口的流量，您的源服务器对攻击者变得不可见。所有 HTTP/HTTPS 请求必须先通过 Cloudflare 的网络，利用其内置的 DDoS 缓解、WAF 和机器人防护，然后才能到达您的服务器。直接针对源服务器的 DDoS 攻击被有效阻止，因为非 Cloudflare IP 在防火墙层面即被拒绝。
+
 ## 为什么需要？
 
-当您的域名通过 Cloudflare 代理时，所有访客流量都来自 [Cloudflare IP 地址](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/)，而不是访客的个人 IP。您的防火墙必须允许这些范围，否则合法流量将被阻止。此脚本自动化了这一过程并保持规则更新。
+当您的域名通过 Cloudflare 代理时，所有访客流量都来自 [Cloudflare IP 地址](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/)，而不是访客的个人 IP。您的防火墙必须允许这些范围，否则合法流量将被阻止。如果没有此配置，您的源服务器 IP 可能会暴露，容易受到绕过 Cloudflare 的直接 DDoS 攻击。此脚本自动化了这一过程并保持规则更新。
 
 ## 要求
 

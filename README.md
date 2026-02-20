@@ -6,9 +6,11 @@ Automatically manage [Cloudflare IP ranges](https://www.cloudflare.com/ips/) in 
 
 Designed for **Ubuntu servers** (also compatible with Debian-based systems).
 
+> **DDoS Prevention:** By allowing only Cloudflare IP ranges and blocking all other direct traffic to ports 80/443, your origin server becomes invisible to attackers. All HTTP/HTTPS requests must pass through Cloudflare's network first, leveraging its built-in DDoS mitigation, WAF, and bot protection before reaching your server. Direct-to-origin DDoS attacks are effectively blocked since non-Cloudflare IPs are denied at the firewall level.
+
 ## Why?
 
-When your domain is proxied through Cloudflare, all visitor traffic arrives from [Cloudflare IP addresses](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) instead of individual visitor IPs. Your firewall must allow these ranges, otherwise legitimate traffic gets blocked. This script automates that process and keeps the rules up to date.
+When your domain is proxied through Cloudflare, all visitor traffic arrives from [Cloudflare IP addresses](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) instead of individual visitor IPs. Your firewall must allow these ranges, otherwise legitimate traffic gets blocked. Without this configuration, your origin server IP may be exposed and vulnerable to direct DDoS attacks that bypass Cloudflare entirely. This script automates that process and keeps the rules up to date.
 
 ## Requirements
 

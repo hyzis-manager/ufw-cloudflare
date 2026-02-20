@@ -6,9 +6,11 @@ Gerencia automaticamente os [ranges de IP da Cloudflare](https://www.cloudflare.
 
 Desenvolvido para **servidores Ubuntu** (também compatível com sistemas baseados em Debian).
 
+> **Prevenção contra DDoS:** Ao permitir apenas os ranges de IP da Cloudflare e bloquear todo o tráfego direto nas portas 80/443, seu servidor de origem se torna invisível para atacantes. Todas as requisições HTTP/HTTPS precisam passar pela rede da Cloudflare primeiro, aproveitando sua mitigação de DDoS, WAF e proteção contra bots antes de chegar ao seu servidor. Ataques DDoS diretos ao servidor de origem são efetivamente bloqueados, já que IPs fora da Cloudflare são negados no nível do firewall.
+
 ## Por quê?
 
-Quando seu domínio é proxied pela Cloudflare, todo o tráfego dos visitantes chega a partir dos [endereços IP da Cloudflare](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) em vez dos IPs individuais dos visitantes. Seu firewall precisa permitir esses ranges, caso contrário o tráfego legítimo será bloqueado. Este script automatiza esse processo e mantém as regras atualizadas.
+Quando seu domínio é proxied pela Cloudflare, todo o tráfego dos visitantes chega a partir dos [endereços IP da Cloudflare](https://developers.cloudflare.com/fundamentals/concepts/cloudflare-ip-addresses/) em vez dos IPs individuais dos visitantes. Seu firewall precisa permitir esses ranges, caso contrário o tráfego legítimo será bloqueado. Sem essa configuração, o IP do seu servidor de origem pode ficar exposto e vulnerável a ataques DDoS diretos que contornam a Cloudflare. Este script automatiza esse processo e mantém as regras atualizadas.
 
 ## Requisitos
 
