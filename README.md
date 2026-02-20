@@ -1,5 +1,7 @@
 # UFW-Cloudflare
 
+🌐 **English** | [Português](README.pt-BR.md) | [Español](README.es.md) | [中文](README.zh.md) | [Íslenska](README.is.md)
+
 Automatically manage [Cloudflare IP ranges](https://www.cloudflare.com/ips/) in UFW (Uncomplicated Firewall). This script fetches the latest Cloudflare IPv4 and IPv6 addresses and creates firewall allow rules for HTTP/HTTPS traffic (ports 80 and 443 TCP), ensuring only Cloudflare-proxied requests reach your origin server.
 
 Designed for **Ubuntu servers** (also compatible with Debian-based systems).
